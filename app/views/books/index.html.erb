@@ -1,20 +1,41 @@
 <h1>Books</h1>
-<p class="index-p"><b>Title</b></p>
-<p class="index-p"><b>Body</b></p>
+
 <div>
-  <% @books.each do |book| %>
-    <ul>
-      <li><%= book.title %></li>
-      <li><%= book.body %></li>
-    </ul>
-    <div class="index-list">
-      <ul>
-        <li><%= link_to "Show", book_path(book.id) %></li>
-        <li><%= link_to "Edit", edit_book_path(book.id) %></li>
-        <li><%= link_to "Destroy", book_path(book.id),method: :delete,"data-confirm" => "Are you sure?" %></li>
-    </ul>
-    </div>
-  <% end %>
+<table border="0" cellpadding="10" cellspacing="10">
+  <thread>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th class="row">コマンド</th>
+    </tr>
+  </thread>
+  <tbody>
+    <tr>
+    <% @books.each do |book| %>
+      <td><%= book.title %></td>
+      <td><%= book.body %></td>
+      <td><%= link_to "Show", book_path(book.id) %><%= link_to "Edit", edit_book_path(book.id) %><%= link_to "Destroy", book_path(book.id),method: :delete,"data-confirm" => "Are you sure?" %></td>
+    </tr>
+  </tbody>
+ 　　 <% end %>
+</table>
 </div>
 
+
+<div>
+  <h2>New book</h2>
+
+  <%= form_with model: @book do |f| %>
+
+  <p>Title</p>
+  <%= f.text_field :title %>
+
+  <p>本文</p>
+  <%= f.text_area :body %>
+
+  <div>
+  <%= f.submit 'Create Book' %>
+  </div>
+  <% end %>
+</div>
 

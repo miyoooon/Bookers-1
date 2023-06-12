@@ -1,4 +1,12 @@
-/*
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.row {
+  display: none;
+}/*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
